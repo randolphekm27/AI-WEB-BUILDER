@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI WEB BUILDER - Crée ton site web avec l'IA en 30 jours</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                fontFamily: {
+                    sans: ['Poppins', 'sans-serif'],
+                },
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#ff0000',
+                            dark: '#cc0000',
+                        },
+                        dark: {
+                            900: '#000000',
+                            800: '#111111',
+                            700: '#1a1a1a',
+                            600: '#2d2d2d',
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 0, 0, 0.1);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-200 font-sans">
+    <!-- Sticky CTA (mobile) -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 bg-dark-800 py-3 px-4 shadow-lg z-50">
+        <a href="https://me.fedapay.com/hbtV0el0" class="block w-full bg-primary hover:bg-primary-dark text-center text-white font-bold py-3 px-4 rounded-lg transition transform hover:scale-105">
+            Oui, je m'inscris
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-dark-800 border-b border-dark-700 py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-primary font-bold text-2xl">AI</span>
+                <span class="text-white font-bold text-2xl">WEB BUILDER</span>
+            </div>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#promesse" class="hover:text-primary transition">La promesse</a>
+                <a href="#pourquoi" class="hover:text-primary transition">Pourquoi l'IA</a>
+                <a href="#programme" class="hover:text-primary transition">Programme</a>
+                <a href="#garantie" class="hover:text-primary transition">Garantie</a>
+                <a href="https://me.fedapay.com/hbtV0el0" class="bg-primary hover:bg-primary-dark px-6 py-2 rounded-lg font-bold transition transform hover:scale-105 ml-4">
+                    Oui, je m'inscris
+                </a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-800 py-4 px-4">
+            <div class="flex flex-col space-y-4">
+                <a href="#promesse" class="hover:text-primary transition">La promesse</a>
+                <a href="#pourquoi" class="hover:text-primary transition">Pourquoi l'IA</a>
+                <a href="#programme" class="hover:text-primary transition">Programme</a>
+                <a href="#garantie" class="hover:text-primary transition">Garantie</a>
+                <a href="https://me.fedapay.com/hbtV0el0" class="bg-primary hover:bg-primary-dark px-6 py-2 rounded-lg font-bold text-center transition">
+                    Oui, je m'inscris
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center bg-dark-800 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80')] bg-cover bg-center opacity-20 parallax"></div>
+        <div class="container mx-auto px-4 relative z-10 py-20">
+            <div class="max-w-3xl mx-auto text-center animate-fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight animate-slide-up">
+                    Crée ton site web en <span class="text-primary">30 jours</span> avec l'IA,<br>
+                    <span class="text-primary">ou je te rembourse le double.</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-10 animate-slide-up animation-delay-100">
+                    On t'apprend comment tu peux créer un site pro sans code ni compétences techniques
+                </p>
+                <a href="https://me.fedapay.com/hbtV0el0" class="inline-block bg-primary hover:bg-primary-dark text-white font-bold py-4 px-10 rounded-lg text-lg md:text-xl transition transform hover:scale-105 animate-slide-up animation-delay-200">
+                    Oui, je m'inscris
+                </a>
+                <div class="mt-12 flex justify-center space-x-4 animate-slide-up animation-delay-300">
+                    <div class="flex items-center">
+                        <div class="flex -space-x-2">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-10 h-10 rounded-full border-2 border-dark-800">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-10 h-10 rounded-full border-2 border-dark-800">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-10 h-10 rounded-full border-2 border-dark-800">
+                        </div>
+                        <p class="ml-3 text-gray-400">
+                            <span class="text-white font-medium">+500 élèves</span> déjà formés
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Promesse Section -->
+<section id="promesse" class="py-20 bg-dark-900">
+  <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="bg-dark-800 p-8 md:p-10 rounded-xl border-l-4 border-primary mb-12 animate-fade-in">
+        <p class="text-2xl md:text-3xl font-bold italic">
+          "Il est vraiment possible de vendre un site web conçu avec un forfait internet de 100 Francs."
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 animate-fade-in">
+        <div class="text-left">
+          <h2 class="text-3xl font-bold mb-6">Écoute</h2>
+          <p class="text-gray-400 mb-6">
+            Je vais pas te mentir, l'opportunité est grande. Sauf que, c'est pas tout le monde qui en profite. Et c’est dommage. L'IA a changé la manière dont nous travaillons.
+            Aujourd'hui, il te suffit d'un simple bout de créativité pour dominer ton marché.
+          </p>
+          <p class="text-gray-400">
+            Beaucoup croient encore qu’il faut des années d’apprentissage ou un diplôme. Mais en vrai, il te suffit d’un téléphone, d’un forfait à 100 Francs, et d’un bon programme. C’est tout.
+          </p>
+        </div>
+        <div class="text-left">
+          <h2 class="text-3xl font-bold mb-6">Ce que tu vas comprendre ici</h2>
+          <p class="text-gray-400 mb-6">
+            L’IA fait 80% du travail. Toi, tu guides. Tu ajustes. Tu ajoutes ta petite touche. Et tu livres un site complet. Fonctionnel. Stylé. Mobile. Le client est content. Il te paie. Tu recommences.
+          </p>
+          <p class="text-gray-400">
+            Ce programme te montre exactement comment faire. Pas de blabla, juste de la pratique. Des vidéos. Des prompts prêts à coller. Des projets que tu peux vendre dès la fin. Tu livres dans 30 jours ou je te rembourse le double. C’est simple.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Pourquoi IA Section -->
+    <section id="pourquoi" class="py-20 bg-dark-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Pourquoi l'IA change la donne</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-dark-700 p-8 rounded-xl card-hover animate-fade-in">
+                    <div class="text-primary text-4xl mb-6">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Parceque tu n'as pas (vraiment)besoin de savoir coder</h3>
+                    <p class="text-gray-400">
+                        Le modèle te génères le code.Et mieux encore, un code fonctionnel, prêt a recevoir ta part de créativité.
+                    </p>
+                </div>
+                <div class="bg-dark-700 p-8 rounded-xl card-hover animate-fade-in animation-delay-100">
+                    <div class="text-primary text-4xl mb-6">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Parceque tu n'as pas (vraiment) besoin de compétences techniques</h3>
+                    <p class="text-gray-400">
+                        Ce qu'on a prévu est conçue pour les débutants complets. Si tu sais utiliser un smartphone, tu peux créer ton site. Alors bienvenue déjà.
+                    </p>
+                </div>
+                <div class="bg-dark-700 p-8 rounded-xl card-hover animate-fade-in animation-delay-200">
+                    <div class="text-primary text-4xl mb-6">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Parceque tu n'as pas besoin d'un programme compliqué </h3>
+                    <p class="text-gray-400">
+                        On fera tout sur ton téléphone. Et pour ceux qui te font croire que le téléphone ne peut pas coder un site fonctionnel viendront te donner raison.</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 max-w-3xl mx-auto bg-dark-700 p-8 rounded-xl animate-fade-in">
+  <h3 class="text-2xl font-bold mb-6 text-center">Les bénéfices pour toi</h3>
+  <ul class="space-y-4">
+    <li class="flex items-start">
+      <span class="text-primary mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
+      <span>Tu pourras créer ton propre site web en moins de 30 jours, même si tu n'y connais rien.</span>
+    </li>
+    <li class="flex items-start">
+      <span class="text-primary mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
+      <span>Tu vas gagner du temps et économiser de l'argent en utilisant des outils simples et pas chers.</span>
+    </li>
+    <li class="flex items-start">
+      <span class="text-primary mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
+      <span>Tu auras un site professionnel qui fonctionne parfaitement, sans devoir être un expert en technologie.</span>
+    </li>
+    <li class="flex items-start">
+      <span class="text-primary mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
+      <span>Tu seras guidé à chaque étape, avec des explications simples et un accompagnement pratique.</span>
+    </li>
+    <li class="flex items-start">
+      <span class="text-primary mr-3 mt-1"><i class="fas fa-check-circle"></i></span>
+      <span>Tu auras accès à vie aux mises à jour, pour que ton site soit toujours au top.</span>
+    </li>
+  </ul>
+  <div class="text-center mt-8">
+    <a href="https://me.fedapay.com/hbtV0el0" class="inline-block bg-primary hover:bg-primary-dark text-white font-bold py-3 px-8 rounded-lg transition transform hover:scale-105">
+      Commencer maintenant
+    </a>
+  </div>
+</div>
+        </div>
+    </section>
+
+    <!-- Programme Section -->
+<section id="programme" class="py-20 bg-dark-900">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Ce que tu vas réaliser</h2>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto">Un programme orienté projet : chaque semaine, tu concrétises deux projets, étape par étape.</p>
+      <div class="w-20 h-1 bg-primary mx-auto mt-6"></div>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      <!-- Semaine 1 -->
+      <div class="bg-dark-800 border border-dark-700 rounded-xl overflow-hidden card-hover animate-fade-in">
+        <div class="bg-primary text-white py-4 px-6">
+          <h3 class="font-bold text-xl">Semaine 1</h3>
+        </div>
+        <div class="p-6">
+          <h4 class="font-bold text-lg mb-3">Projet 1 : Créer ton portfolio</h4>
+          <ul class="text-gray-400 space-y-2 mb-6">
+            <li><span class="text-red-500 text-xs">&#9670;</span> Choisir les outils adaptés</li>
+            <li><span class="text-red-500 text-xs">&#9670;</span> Créer une page d'accueil attrayante</li>
+            <li><span class="text-red-500 text-xs">&#9670;</span> Mettre en valeur tes réalisations</li>
+          </ul>
+          <h4 class="font-bold text-lg mb-3">Projet 2 : Créer un site vitrine pour restaurant</h4>
+          <ul class="text-gray-400 space-y-2 mb-6">
+            <li><span class="text-red-500 text-xs">&#9670;</span> Choisir le design adapté à un restaurant</li>
+            <li><span class="text-red-500 text-xs">&#9670;</span> Ajouter les informations essentielles (menu, horaires, etc.)</li>
+            <li><span class="text-red-500 text-xs">&#9670;</span> Mettre en place une galerie de photos</li>
+          </ul>
+          <a href="https://me.fedapay.com/hbtV0el0" class="text-primary font-bold hover:underline inline-flex items-center">
+            En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Semaine 2 -->
+      <div class="bg-dark-800 border border-dark-700 rounded-xl overflow-hidden card-hover animate-fade-in animation-delay-100">
+        <div class="bg-primary text-white py-4 px-6">
+          <h3 class="font-bold text-xl">Semaine 2</h3>
+        </div>
+        <div class="p-6">
+          <h4 class="font-bold text-lg mb-3">Projet 1 : Création d'un blog personnel</h4>
+          <ul class="text-gray-400 space-y-2 mb-6">
+            <li><span class="text-red-500 text-xs">&#9670;</span> Choisir une plateforme de blogging</li>
+            <li><span class="text-red-500 text-xs">&#9670;</span> Rédiger ton premier article</li>
+            <li><span class="text-red-500 text-xs">&#9670;</span> Personnaliser ton blog avec des images et des widgets</li>
+          </ul>
+          <h4 class="font-bold text-lg mb-3">Projet 2 : Créer un site de e-commerce simple</h4>
+          <ul class="text-gray-400 space-y-2 mb-6">
+            <li><span class="text-red-500 text-xs">&#9670;</span> Choisir une plateforme e-commerce adaptée</li>
+            <li><span class="text-red-500 text-xs">&#9670;</span> Ajouter des produits avec leurs descriptions</li>
+            <li><span class="text-red-500 text-xs">&#9670;</span> Configurer les options de paiement</li>
+          </ul>
+          <a href="https://me.fedapay.com/hbtV0el0" class="text-primary font-bold hover:underline inline-flex items-center">
+            En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Semaine 3 -->
+      <div class="bg-dark-800 border border-dark-700 rounded-xl overflow-hidden card-hover animate-fade-in animation-delay-200">
+        <div class="bg-primary text-white py-4 px-6">
+          <h3 class="font-bold text-xl">Semaine 3</h3>
+        </div>
+        <div class="p-6">
+          <h4 class="font-bold text-lg mb-3">Projet 1 : Créer un portfolio vidéo</h4>
+          <ul class="text-gray-400 space-y-2 mb-6">
+            <li><span class="text-red-500 text-xs">&#9670;</span> Choisir une plateforme de montage vidéo</li>
+            <li><span class="text-red-500 text-xs">&#9670;</span> Monter une vidéo de présentation de tes compétences</li>
+            <li><span class="text-red-500 text-xs">&#9670;</span> Ajouter des animations et effets visuels</li>
+          </ul>
+          <h4 class="font-bold text-lg mb-3">Projet 2 : Créer un site de blog avec des abonnements</h4>
+          <ul class="text-gray-400 space-y-2 mb-6">
+            <li><span class="text-red-500 text-xs">&#9670;</span> Mettre en place un formulaire d'abonnement</li>
+            <li><span class="text-red-500 text-xs">&#9670;</span> Créer un système de contenu premium</li>
+            <li><span class="text-red-500 text-xs">&#9670;</span> Ajouter des options de partage sur les réseaux sociaux</li>
+          </ul>
+          <a href="https://me.fedapay.com/hbtV0el0" class="text-primary font-bold hover:underline inline-flex items-center">
+            En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Semaine 4 -->
+      <div class="bg-dark-800 border border-dark-700 rounded-xl overflow-hidden card-hover animate-fade-in animation-delay-300">
+        <div class="bg-primary text-white py-4 px-6">
+          <h3 class="font-bold text-xl">Semaine 4</h3>
+        </div>
+        <div class="p-6">
+          <h4 class="font-bold text-lg mb-3">Projet 1 : Lancer un site de coaching</h4>
+          <ul class="text-gray-400 space-y-2 mb-6">
+            <li><span class="text-red-500 text-xs">&#9670;</span> Créer un espace pour les services de coaching</li>
+            <li><span class="text-red-500 text-xs">&#9670;</span> Mettre en place un système de réservation en ligne</li>
+            <li><span class="text-red-500 text-xs">&#9670;</span> Ajouter des témoignages et des études de cas</li>
+          </ul>
+          <h4 class="font-bold text-lg mb-3">Projet 2 : Créer une page de vente pour un produit digital</h4>
+          <ul class="text-gray-400 space-y-2 mb-6">
+            <li><span class="text-red-500 text-xs">&#9670;</span> Choisir une plateforme de vente de produits digitaux</li>
+            <li><span class="text-red-500 text-xs">&#9670;</span> Créer une page de présentation efficace</li>
+            <li><span class="text-red-500 text-xs">&#9670;</span> Mettre en place un système de paiement sécurisé</li>
+          </ul>
+          <a href="https://me.fedapay.com/hbtV0el0" class="text-primary font-bold hover:underline inline-flex items-center">
+            En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Garantie Section -->
+    <section id="garantie" class="py-20 bg-dark-800">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center bg-dark-700 p-10 rounded-xl border-2 border-primary animate-fade-in">
+                <div class="text-primary text-5xl mb-6">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    Si tu ne crées pas ton site en 30 jours,<br>
+                    <span class="text-primary">je te rembourse le double.</span>
+                </h2>
+                <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Nous croyons tellement en notre méthode que nous te proposons cette garantie inédite.
+                </p>
+                <a href="https://me.fedapay.com/hbtV0el0" class="inline-block bg-primary hover:bg-primary-dark text-white font-bold py-4 px-10 rounded-lg text-lg transition transform hover:scale-105">
+                    Oui, je m'inscris
+                </a>
+                <p class="text-gray-500 mt-6 text-sm">
+                    *Garantie valable 30 jours après l'inscription
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgence Section -->
+    <section class="py-20 bg-dark-900 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80')] bg-cover bg-center opacity-20 blur-sm"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto text-center animate-fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8">
+                    Pourquoi c'est <span class="text-primary">maintenant ou jamais</span>
+                </h2>
+                <p class="text-xl text-gray-300 mb-8">
+                    Tu n'as plus à attendre, ni à croire que ce n'est pas pour toi. L'IA rend la création web accessible à tous, aujourd'hui.
+                </p>
+                <p class="text-xl text-gray-300 mb-8">
+                    Dans quelques mois, tout le monde utilisera ces techniques. Les premiers à les maîtriser auront une longueur d'avance considérable.
+                </p>
+                <p class="text-xl text-gray-300 mb-10">
+                    Ne laisse pas cette opportunité te passer sous le nez. Ton futur site web t'attend.
+                </p>
+                <a href="https://me.fedapay.com/hbtV0el0" class="inline-block bg-primary hover:bg-primary-dark text-white font-bold py-4 px-10 rounded-lg text-lg transition transform hover:scale-105">
+                    Je commence maintenant
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages Section -->
+    <section class="py-20 bg-dark-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Ils l'ont fait avec notre méthode</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+                <div class="bg-dark-700 p-8 rounded-xl animate-fade-in">
+                    <div class="text-primary text-2xl mb-4">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">
+                        "J'ai créé mon site de photographe en 3 semaines seulement. Mes clients adorent le design et je reçois 3 fois plus de demandes qu'avant."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Amélie T.</h4>
+                            <p class="text-gray-500 text-sm">Photographe indépendante</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-dark-700 p-8 rounded-xl animate-fade-in animation-delay-100">
+                    <div class="text-primary text-2xl mb-4">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">
+                        "Après avoir essayé seul pendant des mois, cette formation m'a enfin permis de lancer mon site e-commerce. Résultat : 2000€ de CA le premier mois !"
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Thomas L.</h4>
+                            <p class="text-gray-500 text-sm">Créateur de bijoux</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-dark-700 p-8 rounded-xl animate-fade-in animation-delay-200">
+                    <div class="text-primary text-2xl mb-4">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="text-gray-300 italic mb-6">
+                        "Je pensais que créer un site était trop technique pour moi. Grâce à l'IA et l'accompagnement, j'ai pu créer le site de mon restaurant en 15 jours."
+                    </p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Sophie M.</h4>
+                            <p class="text-gray-500 text-sm">Restauratrice</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-dark-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Questions fréquentes</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-4 border border-dark-700 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-6 bg-dark-800 hover:bg-dark-700 transition flex justify-between items-center">
+                        <h3 class="font-bold text-lg">Ai-je besoin d'expérience en création de sites web ?</h3>
+                        <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-content bg-dark-800 px-6">
+                        <div class="pb-6 text-gray-400">
+                            <p>
+                                Absolument pas ! Notre formation est conçue pour les débutants complets. 
+                                Nous partons de zéro et te guidons pas à pas grâce à l'IA qui simplifie toutes les étapes techniques.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4 border border-dark-700 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-6 bg-dark-800 hover:bg-dark-700 transition flex justify-between items-center">
+                        <h3 class="font-bold text-lg">Combien de temps par jour dois-je y consacrer ?</h3>
+                        <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-content bg-dark-800 px-6">
+                        <div class="pb-6 text-gray-400">
+                            <p>
+                                Environ 1 heure par jour suffit pour suivre le programme et créer ton site en 30 jours. 
+                                Certains préfèrent faire des sessions plus longues le week-end, c'est à toi de choisir ton rythme.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4 border border-dark-700 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-6 bg-dark-800 hover:bg-dark-700 transition flex justify-between items-center">
+                        <h3 class="font-bold text-lg">Quels outils sont nécessaires ?</h3>
+                        <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-content bg-dark-800 px-6">
+                        <div class="pb-6 text-gray-400">
+                            <p>
+                                Seulement un téléphone ou un ordinateur  et une connexion internet. 
+                                Nous utilisons des outils en ligne accessibles depuis n'importe quel navigateur.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-4 border border-dark-700 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-6 bg-dark-800 hover:bg-dark-700 transition flex justify-between items-center">
+                        <h3 class="font-bold text-lg">Puis-je créer plusieurs sites avec cette formation ?</h3>
+                        <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-content bg-dark-800 px-6">
+                        <div class="pb-6 text-gray-400">
+                            <p>
+                                Bien sûr ! Une fois que tu maîtrises la méthode, tu peux créer autant de sites que tu veux. 
+                                Beaucoup de nos élèves créent des sites pour leurs propres projets ou même pour des clients.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border border-dark-700 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full text-left p-6 bg-dark-800 hover:bg-dark-700 transition flex justify-between items-center">
+                        <h3 class="font-bold text-lg">Comment fonctionne la garantie "30 jours ou double remboursement" ?</h3>
+                        <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="faq-content bg-dark-800 px-6">
+                        <div class="pb-6 text-gray-400">
+                            <p>
+                                Si après avoir suivi toutes les étapes de la formation, tu n'as pas de site fonctionnel dans les 30 jours suivant ton inscription, 
+                                nous te remboursons le double de ton investissement. Il suffit de nous envoyer un email avec la preuve de ton travail.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 bg-dark-800">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8">Prêt à créer ton site web avec l'IA ?</h2>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-10">
+                Rejoins les centaines de personnes qui ont déjà créé leur site sans code ni compétences techniques.
+            </p>
+            <a href="https://me.fedapay.com/hbtV0el0" class="inline-block bg-primary hover:bg-primary-dark text-white font-bold py-5 px-12 rounded-lg text-xl transition transform hover:scale-105">
+                Oui, je m'inscris maintenant
+            </a>
+            <p class="text-gray-500 mt-6">
+                <i class="fas fa-lock mr-2"></i> Paiement sécurisé - Garantie 30 jours satisfait ou remboursé
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 border-t border-dark-800 py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-6 md:mb-0">
+                    <span class="text-primary font-bold text-2xl">AI</span>
+                    <span class="text-white font-bold text-2xl">WEB BUILDER</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-primary transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-dark-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 mb-4 md:mb-0">
+                    &copy; 2023 AI WEB BUILDER. Tous droits réservés.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-primary transition">Mentions légales</a>
+                    <a href="#" class="text-gray-500 hover:text-primary transition">CGV</a>
+                    <a href="#" class="text-gray-500 hover:text-primary transition">Confidentialité</a>
+                    <a href="#" class="text-gray-500 hover:text-primary transition">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // FAQ Toggle
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('i');
+                
+                // Toggle accordion content
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.classList.remove('rotate-180');
+                } else {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.classList.add('rotate-180');
+                }
+                
+                // Close other accordions
+                document.querySelectorAll('.faq-content').forEach(item => {
+                    if (item !== content && item.style.maxHeight) {
+                        item.style.maxHeight = null;
+                        item.previousElementSibling.querySelector('i').classList.remove('rotate-180');
+                    }
+                });
+            });
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('section, .animate-fade-in, .animate-slide-up').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
